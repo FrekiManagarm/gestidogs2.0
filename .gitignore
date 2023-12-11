@@ -4,3 +4,4 @@ linux/
 macos/
 web/
 windows/
+lib/**/*.g.dart
