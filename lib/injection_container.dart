@@ -25,9 +25,12 @@ import 'package:clean_architecture_project/features/dog/domain/usecases/create_d
 import 'package:clean_architecture_project/features/dog/domain/usecases/get_dog_by_id.dart';
 import 'package:clean_architecture_project/features/dog/domain/usecases/get_dogs.dart';
 import 'package:clean_architecture_project/features/dog/domain/usecases/update_dog.dart';
+import 'package:clean_architecture_project/features/dog/presentation/bloc/dog_bloc.dart';
 import 'package:clean_architecture_project/features/establishment/data/datasources/remote_establishment_datasource.dart';
 import 'package:clean_architecture_project/features/establishment/data/repositories/establishment_repository_impl.dart';
 import 'package:clean_architecture_project/features/establishment/domain/repositories/establishment_repository.dart';
+import 'package:clean_architecture_project/features/establishment/domain/usecases/add_new_client.dart';
+import 'package:clean_architecture_project/features/establishment/domain/usecases/add_new_employee.dart';
 import 'package:clean_architecture_project/features/establishment/domain/usecases/create_establishment.dart';
 import 'package:clean_architecture_project/features/establishment/domain/usecases/get_establishment_by_id.dart';
 import 'package:clean_architecture_project/features/establishment/domain/usecases/get_establishments.dart';
@@ -135,6 +138,8 @@ Future<void> initializeDependencies() async {
       CreateEstablishmentUseCase(sl()));
   sl.registerSingleton<UpdateReservationUseCase>(
       UpdateReservationUseCase(sl()));
+  sl.registerSingleton<AddNewClientUseCase>(AddNewClientUseCase(sl()));
+  sl.registerSingleton<AddNewEmployeeUseCase>(AddNewEmployeeUseCase(sl()));
 
   // Dog
   sl.registerSingleton<GetDogsUseCase>(GetDogsUseCase(sl()));
@@ -168,15 +173,18 @@ Future<void> initializeDependencies() async {
 
   // Session
   sl.registerFactory<SessionsBloc>(
-      () => SessionsBloc(sl(), sl(), sl(), sl(), sl(), sl()));
+    () => SessionsBloc(sl(), sl(), sl(), sl(), sl(), sl()),
+  );
 
   // Reservation
   sl.registerFactory<ReservationsBloc>(
-      () => ReservationsBloc(sl(), sl(), sl(), sl()));
+    () => ReservationsBloc(sl(), sl(), sl(), sl()),
+  );
 
   // Activity
   sl.registerFactory<ActivitiesBloc>(
-      () => ActivitiesBloc(sl(), sl(), sl(), sl()));
+    () => ActivitiesBloc(sl(), sl(), sl(), sl()),
+  );
 
   // User
   sl.registerFactory<UserBloc>(
@@ -190,6 +198,11 @@ Future<void> initializeDependencies() async {
 
   // Establishment
   sl.registerFactory<EstablishmentBloc>(
-    () => EstablishmentBloc(sl(), sl(), sl(), sl()),
+    () => EstablishmentBloc(sl(), sl(), sl(), sl(), sl(), sl()),
+  );
+
+  // Dog
+  sl.registerFactory(
+    () => DogBloc(sl(), sl(), sl(), sl()),
   );
 }

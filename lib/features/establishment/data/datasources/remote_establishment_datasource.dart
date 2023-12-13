@@ -1,4 +1,5 @@
 import 'package:clean_architecture_project/core/constants/constants.dart';
+import 'package:clean_architecture_project/features/authentication/data/models/user.dart';
 import 'package:clean_architecture_project/features/establishment/data/models/establishment.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -29,10 +30,21 @@ abstract class EstablishmentApiService {
     @Header("Content-Type") String? contentType,
   });
 
-  // @POST('/establishments/{establishmentId}/newEmployee')
-  // Future<HttpResponse<List<User>>> addNewEmployee({
+  @POST('/establishments/{establishmentId}/newEmployee')
+  Future<HttpResponse<List<User>>> addNewEmployee({
+    @Path('establishmentId') String? establishmentId,
+    @Body() UserRequest? body,
+    @Header("Accept") String? accept,
+    @Header("Content-Type") String? contentType,
+  });
 
-  // });
+  @POST('/establishments/{establishmentId}/newEmployee')
+  Future<HttpResponse<List<User>>> addNewClient({
+    @Path('establishmentId') String? establishmentId,
+    @Body() UserRequest? body,
+    @Header("Accept") String? accept,
+    @Header("Content-Type") String? contentType,
+  });
 
   @PUT('/establishments/{establishmentId}')
   Future<HttpResponse<Establishment>> updateEstablishment({

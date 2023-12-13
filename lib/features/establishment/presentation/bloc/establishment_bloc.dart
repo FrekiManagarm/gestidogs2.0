@@ -1,4 +1,6 @@
 import 'package:clean_architecture_project/core/resources/data_state.dart';
+import 'package:clean_architecture_project/features/establishment/domain/usecases/add_new_client.dart';
+import 'package:clean_architecture_project/features/establishment/domain/usecases/add_new_employee.dart';
 import 'package:clean_architecture_project/features/establishment/domain/usecases/create_establishment.dart';
 import 'package:clean_architecture_project/features/establishment/domain/usecases/get_establishment_by_id.dart';
 import 'package:clean_architecture_project/features/establishment/domain/usecases/get_establishments.dart';
@@ -12,12 +14,16 @@ class EstablishmentBloc extends Bloc<EstablishmentEvent, EstablishmentState> {
   final GetEstablishmentByIdUseCase getEstablishmentByIdUseCase;
   final CreateEstablishmentUseCase createEstablishmentUseCase;
   final UpdateEstablishmentUseCase updateEstablishmentUseCase;
+  final AddNewClientUseCase addNewClientUseCase;
+  final AddNewEmployeeUseCase addNewEmployeeUseCase;
 
   EstablishmentBloc(
     this.createEstablishmentUseCase,
     this.getEstablishmentByIdUseCase,
     this.getEstablishmentsUseCase,
     this.updateEstablishmentUseCase,
+    this.addNewClientUseCase,
+    this.addNewEmployeeUseCase,
   ) : super(const EstablishmentsInitial()) {
     on<GetEstablishmentsEvent>(getEstablishments);
     on<GetEstablishmentByIdEvent>(getEstablishmentById);
@@ -51,6 +57,42 @@ class EstablishmentBloc extends Bloc<EstablishmentEvent, EstablishmentState> {
 
     if (data is DataSuccess) {
       emit(EstablishmentLoaded(data.data!));
+    }
+
+    if (data is DataFailed) {
+      emit(EstablishmentError(data.error!));
+    }
+  }
+
+  void addNewEmployee(
+      AddNewEmployeeEvent event, Emitter<EstablishmentState> emit) async {
+    final data = await addNewEmployeeUseCase(
+      params: AddNewEmployeeUseCaseParameters(
+        body: event.body,
+        establishmentId: event.establishmentId,
+      ),
+    );
+
+    if (data is DataSuccess) {
+      add(const GetEstablishmentsEvent());
+    }
+
+    if (data is DataFailed) {
+      emit(EstablishmentError(data.error!));
+    }
+  }
+
+  void addNewClient(
+      AddNewClientEvent event, Emitter<EstablishmentState> emit) async {
+    final data = await addNewClientUseCase(
+      params: AddNewClientUseCaseParameters(
+        body: event.body,
+        establishmentId: event.establishmentId,
+      ),
+    );
+
+    if (data is DataSuccess) {
+      add(const GetEstablishmentsEvent());
     }
 
     if (data is DataFailed) {

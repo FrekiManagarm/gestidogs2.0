@@ -1,4 +1,6 @@
 import 'package:clean_architecture_project/core/resources/data_state.dart';
+import 'package:clean_architecture_project/features/authentication/data/models/user.dart';
+import 'package:clean_architecture_project/features/authentication/domain/entities/user.dart';
 import 'package:clean_architecture_project/features/establishment/data/datasources/remote_establishment_datasource.dart';
 import 'package:clean_architecture_project/features/establishment/data/models/establishment.dart';
 import 'package:clean_architecture_project/features/establishment/domain/entities/establishment_entity.dart';
@@ -102,6 +104,62 @@ class EstablishmentRepositoryImpl implements EstablishmentRepository {
       );
 
       if (response.response.statusCode == 200) {
+        return DataSuccess(response.data);
+      } else {
+        return DataFailed(
+          DioException(
+            requestOptions: response.response.requestOptions,
+            error: response.response.statusMessage,
+            response: response.response,
+            type: DioExceptionType.badResponse,
+          ),
+        );
+      }
+    } on DioException catch (e) {
+      return DataFailed(e);
+    }
+  }
+
+  @override
+  Future<DataState<List<UserEntity>>> addNewClient(
+      {String? establishmentId, UserRequestEntity? body}) async {
+    try {
+      final response = await apiService.addNewClient(
+        accept: "application/json",
+        contentType: "application/json",
+        body: UserRequest.fromEntity(body!),
+        establishmentId: establishmentId,
+      );
+
+      if (response.response.statusCode == 201) {
+        return DataSuccess(response.data);
+      } else {
+        return DataFailed(
+          DioException(
+            requestOptions: response.response.requestOptions,
+            error: response.response.statusMessage,
+            response: response.response,
+            type: DioExceptionType.badResponse,
+          ),
+        );
+      }
+    } on DioException catch (e) {
+      return DataFailed(e);
+    }
+  }
+
+  @override
+  Future<DataState<List<UserEntity>>> addNewEmployee(
+      {String? establishmentId, UserRequestEntity? body}) async {
+    try {
+      final response = await apiService.addNewEmployee(
+        accept: 'application/json',
+        contentType: 'application/json',
+        body: UserRequest.fromEntity(body!),
+        establishmentId: establishmentId,
+      );
+
+      if (response.response.statusCode == 201) {
         return DataSuccess(response.data);
       } else {
         return DataFailed(
