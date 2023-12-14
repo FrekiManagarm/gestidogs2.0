@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:clean_architecture_project/core/resources/data_state.dart';
 import 'package:clean_architecture_project/features/session/domain/usecases/create_session.dart';
 import 'package:clean_architecture_project/features/session/domain/usecases/get_daily_session.dart';
@@ -38,7 +36,7 @@ class SessionsBloc extends Bloc<SessionsEvent, SessionsState> {
   void getSessions(GetSessionsEvent event, Emitter<SessionsState> emit) async {
     final useCase = await getSessionsUseCase();
 
-    if (useCase is DataSuccess && !useCase.data!.isNull) {
+    if (useCase is DataSuccess) {
       emit(SessionsLoaded(useCase.data!));
     }
 
