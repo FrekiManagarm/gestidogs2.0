@@ -1,12 +1,12 @@
 # This is a generated file; do not edit or check into version control.
-flutter_secure_storage=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\flutter_secure_storage-9.0.0\\
-flutter_secure_storage_linux=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\flutter_secure_storage_linux-1.2.0\\
-flutter_secure_storage_macos=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\flutter_secure_storage_macos-3.0.1\\
-flutter_secure_storage_web=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\flutter_secure_storage_web-1.1.2\\
-flutter_secure_storage_windows=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\flutter_secure_storage_windows-3.0.0\\
-path_provider=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider-2.1.1\\
-path_provider_android=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_android-2.2.0\\
-path_provider_foundation=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_foundation-2.3.1\\
-path_provider_linux=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_linux-2.2.1\\
-path_provider_windows=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_windows-2.2.1\\
-sqflite=C:\\Users\\mathieu.chambaud\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\sqflite-2.3.0\\
+flutter_secure_storage=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/flutter_secure_storage-9.0.0/
+flutter_secure_storage_linux=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/flutter_secure_storage_linux-1.2.0/
+flutter_secure_storage_macos=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/flutter_secure_storage_macos-3.0.1/
+flutter_secure_storage_web=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/flutter_secure_storage_web-1.1.2/
+flutter_secure_storage_windows=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/flutter_secure_storage_windows-3.0.0/
+path_provider=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/path_provider-2.1.1/
+path_provider_android=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/path_provider_android-2.2.0/
+path_provider_foundation=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.1/
+path_provider_linux=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/
+path_provider_windows=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/path_provider_windows-2.2.1/
+sqflite=/Users/mathieuchambaud/.pub-cache/hosted/pub.dev/sqflite-2.3.0/

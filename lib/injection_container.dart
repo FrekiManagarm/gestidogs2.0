@@ -34,6 +34,7 @@ import 'package:clean_architecture_project/features/establishment/domain/usecase
 import 'package:clean_architecture_project/features/establishment/domain/usecases/create_establishment.dart';
 import 'package:clean_architecture_project/features/establishment/domain/usecases/get_establishment_by_id.dart';
 import 'package:clean_architecture_project/features/establishment/domain/usecases/get_establishments.dart';
+import 'package:clean_architecture_project/features/establishment/domain/usecases/update_establishment.dart';
 import 'package:clean_architecture_project/features/establishment/presentation/bloc/establishment_bloc.dart';
 import 'package:clean_architecture_project/features/holidays/data/datasources/remote_holidays_datasource.dart';
 import 'package:clean_architecture_project/features/holidays/data/repositories/holiday_repository_impl.dart';
@@ -136,8 +137,8 @@ Future<void> initializeDependencies() async {
       GetEstablishmentByIdUseCase(sl()));
   sl.registerSingleton<CreateEstablishmentUseCase>(
       CreateEstablishmentUseCase(sl()));
-  sl.registerSingleton<UpdateReservationUseCase>(
-      UpdateReservationUseCase(sl()));
+  sl.registerSingleton<UpdateEstablishmentUseCase>(
+      UpdateEstablishmentUseCase(sl()));
   sl.registerSingleton<AddNewClientUseCase>(AddNewClientUseCase(sl()));
   sl.registerSingleton<AddNewEmployeeUseCase>(AddNewEmployeeUseCase(sl()));
 
