@@ -53,20 +53,17 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                       )
                     : null,
               ),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  shape: const CircleBorder(),
-                  splashFactory: NoSplash.splashFactory,
-                ),
-                onPressed: () {
+              child: InkWell(
+                onTap: () {
                   indexStateNotifier.setIndex(0);
                 },
-                child: Icon(
-                  Icons.home_outlined,
-                  color: indexState == 0 ? Colors.black : Colors.white,
-                  size: indexState == 0 ? 28 : 25,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Icon(
+                    Icons.home_outlined,
+                    color: indexState == 0 ? Colors.black : Colors.white,
+                    size: indexState == 0 ? 28 : 25,
+                  ),
                 ),
               ),
             ),
@@ -83,20 +80,17 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                       )
                     : null,
               ),
-              child: ElevatedButton(
-                onPressed: () {
+              child: InkWell(
+                onTap: () {
                   indexStateNotifier.setIndex(1);
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  shape: const CircleBorder(),
-                  splashFactory: NoSplash.splashFactory,
-                ),
-                child: Icon(
-                  Icons.calendar_month_outlined,
-                  color: indexState == 1 ? Colors.black : Colors.white,
-                  size: indexState == 1 ? 28 : 25,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Icon(
+                    Icons.calendar_month_outlined,
+                    color: indexState == 1 ? Colors.black : Colors.white,
+                    size: indexState == 1 ? 28 : 25,
+                  ),
                 ),
               ),
             ),
@@ -113,20 +107,44 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                       )
                     : null,
               ),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  splashFactory: NoSplash.splashFactory,
-                  shape: const CircleBorder(),
-                ),
-                onPressed: () {
+              child: InkWell(
+                onTap: () {
                   indexStateNotifier.setIndex(2);
                 },
-                child: Icon(
-                  Icons.person_outline,
-                  color: indexState == 2 ? Colors.black : Colors.white,
-                  size: indexState == 2 ? 28 : 25,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Icon(
+                    Icons.wb_sunny_outlined,
+                    color: indexState == 2 ? Colors.black : Colors.white,
+                    size: indexState == 2 ? 28 : 25,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                gradient: indexState == 3
+                    ? const LinearGradient(
+                        colors: [
+                          primaryColor,
+                          secondaryColor,
+                        ],
+                        transform: GradientRotation(-18),
+                      )
+                    : null,
+              ),
+              child: InkWell(
+                onTap: () {
+                  indexStateNotifier.setIndex(3);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Icon(
+                    Icons.person_outline,
+                    color: indexState == 3 ? Colors.black : Colors.white,
+                    size: indexState == 3 ? 28 : 25,
+                  ),
                 ),
               ),
             ),

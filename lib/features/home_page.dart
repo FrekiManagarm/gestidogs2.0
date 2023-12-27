@@ -1,5 +1,6 @@
 import 'package:clean_architecture_project/features/authentication/presentation/pages/profile_screen.dart';
 import 'package:clean_architecture_project/features/holidays/presentation/pages/holidays_home_screen.dart';
+import 'package:clean_architecture_project/features/home_screen.dart';
 import 'package:clean_architecture_project/features/session/presentation/pages/calendar_screen.dart';
 import 'package:clean_architecture_project/widgets/bottom_navigation_bar/bnb_cubit.dart';
 import 'package:clean_architecture_project/widgets/bottom_navigation_bar/bottom_navigation_bar.dart';
@@ -15,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Widget> tabs = const [
-    HomePage(),
+    HomeScreen(),
     CalendarScreen(),
     HolidaysHomeScreen(),
     ProfileScreen(),
