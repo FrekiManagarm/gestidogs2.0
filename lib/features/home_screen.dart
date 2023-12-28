@@ -1,3 +1,4 @@
+import 'package:clean_architecture_project/features/session/presentation/pages/today_sessions_list.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,9 +14,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return SizedBox(
       width: MediaQuery.sizeOf(context).width,
       height: MediaQuery.sizeOf(context).height,
-      child: Column(
+      child: const Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          
+          TodaySessionsList(),
         ],
       ),
     );

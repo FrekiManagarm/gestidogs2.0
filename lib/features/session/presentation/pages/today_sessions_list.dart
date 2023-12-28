@@ -66,6 +66,7 @@ class _TodaySessionsListState extends State<TodaySessionsList> {
                 return ListView.builder(
                   addAutomaticKeepAlives: false,
                   addRepaintBoundaries: false,
+                  scrollDirection: Axis.horizontal,
                   itemCount: state.sessions!.length,
                   itemBuilder: (context, index) {
                     return Container();
