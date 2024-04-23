@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -19,8 +21,14 @@ void initializeClient() async {
   dioClient.interceptors.add(
     InterceptorsWrapper(
       onResponse: (e, handler) {},
-      onError: (e, handler) {},
+      onError: (e, handler) {
+        if (e.response!.statusCode == HttpStatus.forbidden) {
+          _retry();
+        }
+      },
       onRequest: (options, handler) {},
     ),
   );
 }
+
+void _retry() {}

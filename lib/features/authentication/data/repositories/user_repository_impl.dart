@@ -160,7 +160,7 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<DataState<LoginResponseEntity>> register(
+  Future<DataState<LoginResponse>> register(
       {RegisterRequestEntity? body}) async {
     try {
       final response = await apiService.register(

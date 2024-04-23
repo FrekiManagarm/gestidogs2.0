@@ -59,6 +59,7 @@ import 'package:clean_architecture_project/features/session/domain/usecases/crea
 import 'package:clean_architecture_project/features/session/domain/usecases/get_daily_session.dart';
 import 'package:clean_architecture_project/features/session/domain/usecases/get_remaining_places.dart';
 import 'package:clean_architecture_project/features/session/domain/usecases/get_sessions.dart';
+import 'package:clean_architecture_project/features/session/domain/usecases/post_session_report.dart';
 import 'package:clean_architecture_project/features/session/domain/usecases/update_session.dart';
 import 'package:clean_architecture_project/features/session/presentation/bloc/session_bloc.dart';
 import 'package:clean_architecture_project/utils/dio_client.dart';
@@ -120,6 +121,7 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<UpdateSessionUseCase>(UpdateSessionUseCase(sl()));
   sl.registerSingleton<GetSessionRemainingPlacesUseCase>(
       GetSessionRemainingPlacesUseCase(sl()));
+  sl.registerSingleton<PostSessionReportUseCase>(PostSessionReportUseCase(sl()));
 
   // Reservation
   sl.registerSingleton<GetReservationsUseCase>(GetReservationsUseCase(sl()));

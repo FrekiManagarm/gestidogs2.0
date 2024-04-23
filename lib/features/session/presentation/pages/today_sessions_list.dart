@@ -18,11 +18,10 @@ class _TodaySessionsListState extends State<TodaySessionsList> {
   late SessionsBloc sessionsBloc;
 
   @override
-  void initState() async {
+  void initState() {
     super.initState();
     sessionsBloc = sl<SessionsBloc>()..add(GetDailySessionsEvent(
       date: DateTime.now().toString(),
-      establishmentId: await sl<StorageManager>().getEstablishmentId(),
     ));
   }
 
